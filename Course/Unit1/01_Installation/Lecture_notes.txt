@@ -1,0 +1,593 @@
+Godot Installation – Lecture
+1. Introduction
+
+Godot is a free and open-source game engine used to create 2D and 3D games.
+
+In this lecture, students will learn how to:
+
+Download Godot
+Install Godot
+Understand the Godot launcher/editor
+Create a project
+Configure the project
+Run the first scene
+Understand the basic Godot project structure
+2. What is Godot?
+
+Godot is a cross-platform game engine.
+
+It supports:
+
+2D game development
+3D game development
+UI development
+Animation
+Physics
+Audio
+Networking
+Shaders and VFX
+Scripting
+Supported Platforms
+
+Godot can be used to develop games for:
+
+Windows
+Linux
+macOS
+Android
+iOS
+Web
+3. Godot System Requirements
+
+For beginner game-development work, a modern computer with the following is recommended:
+
+Component	Recommended
+OS	Windows 10/11 64-bit
+RAM	8 GB or more
+CPU	Modern dual/quad-core processor
+GPU	Integrated GPU for basic projects; dedicated GPU for advanced 3D
+Storage	Several GB of free space
+IDE	Godot Editor
+
+For classroom teaching, Godot 4.x should be used consistently across all student machines.
+
+4. Downloading Godot
+
+Go to the official Godot website:
+
+Godot Engine
+
+Choose the appropriate version for the operating system.
+
+For Windows, students will generally see options such as:
+
+Standard
+.NET
+Standard Version
+
+Uses GDScript and is suitable for beginners.
+
+.NET Version
+
+Adds support for C# scripting.
+
+Recommendation for this course
+
+For a beginner Godot course:
+
+Use the Standard version with GDScript.
+
+5. Installing Godot on Windows
+
+Godot's Windows distribution can be used without a traditional installer.
+
+Steps
+
+Step 1: Download the Windows version.
+
+Step 2: Extract the downloaded ZIP file.
+
+For example:
+
+C:\Godot\
+
+Inside the folder you will find the Godot executable.
+
+Example:
+
+Godot_v4.x-stable_win64.exe
+
+Step 3: Double-click the executable.
+
+Godot Editor will open.
+
+6. Creating a Desktop Shortcut
+
+For convenient classroom use:
+
+Right-click the Godot executable.
+Select Show more options if required.
+Choose Send to → Desktop (create shortcut).
+
+Students can then launch Godot directly from the desktop.
+
+7. Godot Project Manager
+
+When Godot starts, the Project Manager appears.
+
+It is used to:
+
+Create projects
+Import projects
+Open existing projects
+Rename/manage projects
+Select the project renderer
+
+Typical interface:
+
++--------------------------------------+
+|          Godot Project Manager       |
++--------------------------------------+
+|                                      |
+|  Project List                        |
+|                                      |
+|  MyFirstGame                         |
+|  Platformer                          |
+|  SpaceGame                           |
+|                                      |
+|       [Import] [Create] [Edit]       |
++--------------------------------------+
+8. Creating the First Project
+
+Click:
+
+Create
+
+Enter:
+
+Project Name:
+MyFirstGame
+
+Choose a project location, for example:
+
+D:\GodotProjects\MyFirstGame
+
+or:
+
+C:\GodotProjects\MyFirstGame
+9. Project Folder
+
+A good project organization is important.
+
+Example:
+
+GodotProjects/
+└── MyFirstGame/
+    ├── project.godot
+    ├── scenes/
+    ├── scripts/
+    ├── assets/
+    ├── textures/
+    ├── audio/
+    └── animations/
+
+Godot automatically creates the important project configuration file:
+
+project.godot
+10. Choosing the Renderer
+
+Godot provides different rendering options.
+
+Depending on the Godot version, students may encounter:
+
+Compatibility
+Mobile
+Forward+
+Compatibility
+
+Useful when:
+
+Target hardware has limited graphics capabilities
+Learning basic Godot
+Developing simple 2D projects
+Hardware compatibility is important
+Mobile
+
+Designed for mobile-oriented rendering.
+
+Forward+
+
+Designed for more advanced desktop 3D rendering.
+
+Classroom Recommendation
+
+For basic 2D projects:
+
+Compatibility
+
+For advanced desktop 3D projects:
+
+Forward+
+
+The renderer can be selected according to the project's target hardware.
+
+11. Open the Project
+
+After creating the project, click:
+
+Create & Edit
+
+The Godot Editor opens.
+
+12. Godot Editor
+
+The Godot Editor contains several important areas.
+
++--------------------------------------------------+
+|                  Main Toolbar                    |
++-------------+----------------------+-------------+
+|             |                      |             |
+|   Scene     |                      |  Inspector  |
+|   Tree      |     Viewport         |             |
+|             |                      |             |
++-------------+----------------------+-------------+
+|             FileSystem                            |
++--------------------------------------------------+
+
+Important sections:
+
+1. Scene Dock
+
+Displays the current scene tree.
+
+2. Viewport
+
+Used to visually build the game.
+
+3. Inspector
+
+Used to modify node properties.
+
+4. FileSystem
+
+Displays project files.
+
+5. Script Editor
+
+Used to write GDScript.
+
+6. Output
+
+Displays messages, errors and debugging information.
+
+13. Create the First Scene
+
+For a simple 2D project:
+
+Click:
+
+2D Scene
+
+Godot creates a root node such as:
+
+Node2D
+
+Rename it:
+
+Main
+
+The scene tree becomes:
+
+Main
+14. Save the Scene
+
+Press:
+
+Ctrl + S
+
+Save the scene as:
+
+main.tscn
+
+A typical project now contains:
+
+MyFirstGame/
+│
+├── project.godot
+└── main.tscn
+15. Understanding .tscn
+
+Godot scenes commonly use:
+
+.tscn
+
+For example:
+
+main.tscn
+player.tscn
+enemy.tscn
+level1.tscn
+
+A scene stores:
+
+Nodes
+Node properties
+Node hierarchy
+Attached scripts
+Resources
+16. Run the Project
+
+Press:
+
+F6
+
+to run the current scene.
+
+Press:
+
+F5
+
+to run the project.
+
+Difference
+Key	Purpose
+F6	Run current scene
+F5	Run project
+17. Main Scene
+
+When pressing F5 for the first time, Godot may ask:
+
+Select the main scene.
+
+Select:
+
+main.tscn
+
+This tells Godot:
+
+"Start the game from this scene."
+
+18. Project Settings
+
+Open:
+
+Project → Project Settings
+
+Project Settings contains configuration for the game.
+
+Important categories include:
+
+Application
+Project name
+Main scene
+Project icon
+Display
+Window size
+Stretch settings
+Window behavior
+Input Map
+
+Used to create controls such as:
+
+move_left
+move_right
+jump
+attack
+interact
+Rendering
+
+Controls graphics-related settings.
+
+Physics
+
+Controls physics-related settings.
+
+19. Setting the Window Size
+
+For example, a 2D game can use:
+
+Width: 1280
+Height: 720
+
+This gives a:
+
+16:9
+
+aspect ratio.
+
+Other common resolutions include:
+
+1920 × 1080
+1280 × 720
+
+For beginner projects, 1280 × 720 is a convenient working resolution.
+
+20. Installing Godot on Other Platforms
+Linux
+
+Download the Linux version, extract it and run the Godot executable.
+
+macOS
+
+Download the macOS version and place the application in the Applications folder.
+
+Android Development
+
+For Android export, additional Android development tools and configuration are required.
+
+Web
+
+Godot can export projects to HTML5/Web through its web export workflow.
+
+21. Godot Project Structure
+
+A recommended structure for students:
+
+MyGame/
+│
+├── project.godot
+│
+├── scenes/
+│   ├── main.tscn
+│   ├── player.tscn
+│   └── enemy.tscn
+│
+├── scripts/
+│   ├── player.gd
+│   └── enemy.gd
+│
+├── assets/
+│   ├── models/
+│   ├── textures/
+│   ├── sprites/
+│   └── audio/
+│
+└── UI/
+    ├── hud.tscn
+    └── menu.tscn
+
+Students should develop the habit of organizing project files from the beginning.
+
+22. First Installation Exercise
+Exercise: Create Your First Godot Project
+
+Students should perform the following:
+
+Download Godot.
+Launch Godot.
+Create a project named:
+MyFirstGame
+Select the project location.
+Select an appropriate renderer.
+Create the project.
+Create a 2D scene.
+Rename the root node to:
+Main
+Save it as:
+main.tscn
+Run the scene.
+Run the project.
+Open Project Settings.
+Change the window resolution.
+Close and reopen the project.
+23. Common Installation Problems
+Problem 1: Godot does not start
+
+Possible causes:
+
+Unsupported operating system
+Graphics driver problem
+Incorrect executable
+Corrupted download
+
+Try downloading Godot again from the official site.
+
+Problem 2: Project does not run
+
+Check:
+
+Project → Project Settings
+
+and verify that a main scene is configured.
+
+Problem 3: Scene does not appear
+
+Make sure the scene has been saved:
+
+Ctrl + S
+
+and verify that the .tscn file exists in the FileSystem dock.
+
+Problem 4: Students have different Godot versions
+
+This can cause differences in:
+
+Editor interface
+Node properties
+Rendering
+APIs
+Project behavior
+Classroom rule
+
+All students should preferably use the same Godot 4.x version for the entire course.
+
+24. Important Godot File Types
+Extension	Purpose
+.godot	Project configuration
+.tscn	Scene
+.gd	GDScript
+.tres	Text-based resource
+.res	Resource
+.import	Import-related metadata
+25. Installation Checklist
+
+Before beginning game development, verify:
+
+☐ Godot installed
+☐ Godot launches
+☐ Project Manager opens
+☐ New project can be created
+☐ Project opens in Editor
+☐ Scene can be created
+☐ Scene can be saved
+☐ Project can run
+☐ Main scene can be configured
+☐ Project Settings can be opened
+☐ Window resolution can be changed
+☐ Student understands project folders
+26. Key Concepts
+
+Students should remember:
+
+Godot
+   ↓
+Project Manager
+   ↓
+Create Project
+   ↓
+Godot Editor
+   ↓
+Scene
+   ↓
+Nodes
+   ↓
+Scripts
+   ↓
+Run Project
+Most important terms
+
+Godot → Game engine
+
+Project → Complete game/application
+
+Scene → Reusable collection of nodes
+
+Node → Building block of a Godot game
+
+Script → Program logic
+
+Resource → Data used by nodes/scenes
+
+Project Manager → Creates and manages projects
+
+Editor → Environment used to develop the game
+
+27. Short Viva Questions
+What is Godot?
+Is Godot free and open source?
+What is the purpose of the Godot Project Manager?
+What is a Godot project?
+What is a scene?
+What is a node?
+What is the purpose of project.godot?
+What is the .tscn file?
+What is the difference between F5 and F6?
+What is the purpose of Project Settings?
+What is the Input Map?
+What is a renderer?
+What is GDScript?
+Where are project assets stored?
+Why should students use the same Godot version in a lab?
+One-line takeaway
+
+Installation is the first step; after Godot is installed, students create a project, build scenes from nodes, attach scripts, configure project settings, and run the game.

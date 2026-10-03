@@ -1,0 +1,603 @@
+First Project in Godot – Lecture
+1. Introduction
+
+After installing Godot, the next step is to create and run a first Godot project.
+
+In this lecture, students will create a simple project that displays:
+
+Hello Godot!
+
+The objective is not to build a complete game yet, but to understand the basic Godot workflow:
+
+Project
+   ↓
+Scene
+   ↓
+Node
+   ↓
+Properties
+   ↓
+Script
+   ↓
+Run
+2. Learning Objectives
+
+By the end of this lecture, students should be able to:
+
+Create a Godot project
+Understand the Project Manager
+Understand the Godot Editor
+Create a scene
+Add nodes
+Rename nodes
+Modify node properties
+Save a scene
+Set the main scene
+Run the project
+Understand the basic project structure
+Create a simple GDScript
+3. Create a New Project
+
+Open Godot.
+
+The Project Manager appears.
+
+Click:
+
+Create
+
+Enter:
+
+Project Name:
+FirstGodotProject
+
+Choose a location such as:
+
+D:\GodotProjects\FirstGodotProject
+
+Select an appropriate renderer.
+
+For a basic beginner project, Compatibility is sufficient.
+
+Click:
+
+Create & Edit
+4. Project Structure
+
+After creating the project, Godot creates the project directory.
+
+FirstGodotProject/
+│
+└── project.godot
+
+The file:
+
+project.godot
+
+contains the project's configuration.
+
+5. Understanding the Godot Editor
+
+The editor contains several important areas.
+
++--------------------------------------------------+
+|                  Toolbar                         |
++-------------+----------------------+-------------+
+|             |                      |             |
+|   Scene     |      Viewport        | Inspector   |
+|   Tree      |                      |             |
+|             |                      |             |
++-------------+----------------------+-------------+
+|                  FileSystem                      |
++--------------------------------------------------+
+|                  Output                          |
++--------------------------------------------------+
+Scene
+
+Displays the nodes in the current scene.
+
+Viewport
+
+Displays and allows editing of the scene.
+
+Inspector
+
+Allows us to modify node properties.
+
+FileSystem
+
+Displays files belonging to the project.
+
+Output
+
+Displays messages, errors and debugging information.
+
+6. Create the First Scene
+
+For a 2D project, click:
+
+2D Scene
+
+Godot creates:
+
+Node2D
+
+Rename it:
+
+Main
+
+The Scene Tree becomes:
+
+Main
+7. Why Do We Need a Root Node?
+
+Every Godot scene has a root node.
+
+For example:
+
+Main
+├── Player
+├── Enemy
+├── Coin
+└── UI
+
+The root node provides the starting point for the scene's node hierarchy.
+
+For a simple 2D scene:
+
+Node2D
+
+is commonly used as the root.
+
+8. Add a Label
+
+Now we will display text on the screen.
+
+Right-click:
+
+Main
+
+Select:
+
+Add Child Node
+
+Search for:
+
+Label
+
+Select Label and click Create.
+
+The scene tree becomes:
+
+Main
+└── Label
+9. Change the Label Text
+
+Select:
+
+Label
+
+In the Inspector, find the Text property.
+
+Enter:
+
+Hello Godot!
+
+The viewport will now display:
+
+Hello Godot!
+10. Position the Label
+
+Select the Label.
+
+Change its position so that it appears near the center of the screen.
+
+For example:
+
+Position
+X = 500
+Y = 300
+
+The exact values depend on the project window size.
+
+11. Save the Scene
+
+Press:
+
+Ctrl + S
+
+Save it as:
+
+main.tscn
+
+The project now contains:
+
+FirstGodotProject/
+│
+├── project.godot
+└── main.tscn
+12. Run the Scene
+
+Press:
+
+F6
+
+F6 means:
+
+Run Current Scene
+
+The game window should appear with:
+
+Hello Godot!
+13. Run the Project
+
+Press:
+
+F5
+
+F5 means:
+
+Run Project
+
+If Godot asks for the main scene, select:
+
+main.tscn
+
+Now the project starts from main.tscn.
+
+14. F5 vs F6
+Shortcut	Purpose
+F5	Run Project
+F6	Run Current Scene
+F8	Stop Running Project
+
+This distinction becomes important when a project contains multiple scenes.
+
+For example:
+
+main.tscn
+menu.tscn
+level1.tscn
+level2.tscn
+player.tscn
+
+F6 can be used to test one particular scene.
+
+F5 starts the complete project from its configured main scene.
+
+15. Add a Sprite
+
+We can make the project slightly more interesting by adding a visual object.
+
+Select:
+
+Main
+
+Add:
+
+Sprite2D
+
+The scene becomes:
+
+Main
+├── Label
+└── Sprite2D
+
+A Sprite2D requires a texture.
+
+For the first project, students can use any simple image placed inside the project folder.
+
+Example:
+
+assets/
+└── player.png
+
+Then assign the image to the Sprite2D's Texture property.
+
+16. Project Folder Organization
+
+As projects become larger, organize files.
+
+Recommended structure:
+
+FirstGodotProject/
+│
+├── project.godot
+│
+├── scenes/
+│   └── main.tscn
+│
+├── scripts/
+│
+├── assets/
+│   ├── sprites/
+│   ├── textures/
+│   └── audio/
+│
+└── UI/
+
+This makes projects easier to maintain.
+
+17. Add a Script
+
+Now we introduce programming.
+
+Select:
+
+Main
+
+Click:
+
+Attach Script
+
+Godot creates a script such as:
+
+main.gd
+
+A basic script looks like:
+
+extends Node2D
+
+This means the script inherits functionality from Node2D.
+
+18. Add a Simple Message
+
+We can add:
+
+extends Node2D
+
+func _ready():
+    print("Hello Godot!")
+
+When the project starts, the message:
+
+Hello Godot!
+
+will appear in the Output panel.
+
+19. Understanding _ready()
+func _ready():
+
+_ready() is called when the node has entered the scene tree and is ready.
+
+It is commonly used for initialization.
+
+For example:
+
+func _ready():
+    print("Game Started")
+
+When the game starts:
+
+Game Started
+
+appears in the Output panel.
+
+20. Complete First Project
+
+Our scene can now look like:
+
+Main
+├── Label
+└── Sprite2D
+
+And the script:
+
+extends Node2D
+
+func _ready():
+    print("Hello Godot!")
+
+When running:
+
+             Hello Godot!
+
+                  🟦
+
+The exact visual depends on the student's selected asset.
+
+21. Understanding the Complete Workflow
+
+Students should understand this development workflow:
+
+Create Project
+      ↓
+Create Scene
+      ↓
+Add Root Node
+      ↓
+Add Child Nodes
+      ↓
+Modify Properties
+      ↓
+Attach Script
+      ↓
+Save Scene
+      ↓
+Set Main Scene
+      ↓
+Run Project
+      ↓
+Test
+      ↓
+Modify
+      ↓
+Test Again
+
+This workflow is repeated throughout Godot development.
+
+22. Important Godot Concepts Introduced
+
+The first project introduces several fundamental concepts:
+
+Project
+
+The complete game/application.
+
+Scene
+
+A collection of nodes saved as a reusable unit.
+
+Node
+
+A building block of the game.
+
+Node Tree
+
+The hierarchical organization of nodes.
+
+Inspector
+
+Used to edit properties.
+
+Script
+
+Contains game logic.
+
+Resource
+
+Data used by nodes, such as:
+
+Textures
+Audio
+Fonts
+Materials
+Animations
+23. Mini Exercise
+
+Ask students to modify the project.
+
+Task
+
+Create:
+
+Main
+├── Title
+├── Description
+└── Player
+Title
+
+Display:
+
+My First Godot Game
+Description
+
+Display:
+
+Welcome to Godot!
+Player
+
+Add a Sprite2D with any image.
+
+Arrange the scene approximately as:
+
+       My First Godot Game
+
+          Welcome to Godot!
+
+
+               [Player]
+
+Then run the project.
+
+24. Challenge Exercise
+
+Create a simple Welcome Screen.
+
+It should contain:
+
++----------------------------------+
+|                                  |
+|       MY FIRST GODOT GAME        |
+|                                  |
+|          Welcome!                |
+|                                  |
+|       [ START GAME ]             |
+|                                  |
++----------------------------------+
+
+Students should use:
+
+Node2D
+Label
+Button
+Sprite2D
+
+This prepares them for later lessons on UI, scenes, signals and scripting.
+
+25. Common Beginner Mistakes
+Mistake 1: Scene not saved
+
+Always save using:
+
+Ctrl + S
+Mistake 2: Running the wrong scene
+
+Use:
+
+F6
+
+to test the current scene.
+
+Mistake 3: F5 doesn't start the expected scene
+
+Configure the project's main scene.
+
+Mistake 4: Node not visible
+
+Check:
+
+Position
+Visibility
+Parent node
+Scale
+Texture
+Mistake 5: Script error
+
+Check the Debugger/Output panel for the error message.
+
+26. Practical Lab Activity
+Experiment: Create and Run Your First Godot Project
+
+Objective:
+
+Create a basic 2D Godot project containing a text message and an image.
+
+Procedure:
+
+Open Godot.
+Create FirstGodotProject.
+Create a 2D scene.
+Rename the root node to Main.
+Add a Label.
+Set its text to Hello Godot!.
+Add a Sprite2D.
+Assign an image texture.
+Position the nodes.
+Save as main.tscn.
+Attach main.gd.
+Add a _ready() function.
+Run the current scene.
+Set main.tscn as the main scene.
+Run the project.
+27. Viva Questions
+What is a Godot project?
+What is a scene?
+What is a node?
+What is the root node?
+What is the Scene Tree?
+What is the Inspector?
+What is the FileSystem dock?
+What is a .tscn file?
+What is a .gd file?
+What is the purpose of project.godot?
+What does F5 do?
+What does F6 do?
+What does F8 do?
+What is _ready()?
+Why do we attach scripts to nodes?
+What is a Sprite2D?
+What is a Label?
+What is a main scene?
+Why should project files be organized into folders?
+What is the difference between a scene and a node?
